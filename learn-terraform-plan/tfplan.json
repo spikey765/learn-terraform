@@ -1,0 +1,722 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.12.2",
+  "variables": {
+    "project_name": {
+      "value": "terraform-plan"
+    },
+    "region": {
+      "value": "us-east-1"
+    }
+  },
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "random_pet.instance",
+          "mode": "managed",
+          "type": "random_pet",
+          "name": "instance",
+          "provider_name": "registry.terraform.io/hashicorp/random",
+          "schema_version": 0,
+          "values": {
+            "keepers": null,
+            "length": 2,
+            "prefix": null,
+            "separator": "-"
+          },
+          "sensitive_values": {}
+        }
+      ],
+      "child_modules": [
+        {
+          "resources": [
+            {
+              "address": "module.ec2-instance.aws_instance.main",
+              "mode": "managed",
+              "type": "aws_instance",
+              "name": "main",
+              "provider_name": "registry.terraform.io/hashicorp/aws",
+              "schema_version": 1,
+              "values": {
+                "ami": "ami-05ec1e5f7cfe5ef59",
+                "credit_specification": [],
+                "get_password_data": false,
+                "hibernation": null,
+                "instance_type": "t2.micro",
+                "launch_template": [],
+                "source_dest_check": true,
+                "timeouts": null,
+                "user_data_replace_on_change": false,
+                "volume_tags": null
+              },
+              "sensitive_values": {
+                "capacity_reservation_specification": [],
+                "cpu_options": [],
+                "credit_specification": [],
+                "ebs_block_device": [],
+                "enclave_options": [],
+                "ephemeral_block_device": [],
+                "instance_market_options": [],
+                "ipv6_addresses": [],
+                "launch_template": [],
+                "maintenance_options": [],
+                "metadata_options": [],
+                "network_interface": [],
+                "private_dns_name_options": [],
+                "root_block_device": [],
+                "secondary_private_ips": [],
+                "security_groups": [],
+                "tags": {},
+                "tags_all": {},
+                "vpc_security_group_ids": []
+              }
+            }
+          ],
+          "address": "module.ec2-instance"
+        },
+        {
+          "resources": [
+            {
+              "address": "module.hello.random_pet.number_2",
+              "mode": "managed",
+              "type": "random_pet",
+              "name": "number_2",
+              "provider_name": "registry.terraform.io/hashicorp/random",
+              "schema_version": 0,
+              "values": {
+                "keepers": {
+                  "hello": "World"
+                },
+                "length": 2,
+                "prefix": null,
+                "separator": "-"
+              },
+              "sensitive_values": {
+                "keepers": {}
+              }
+            },
+            {
+              "address": "module.hello.random_pet.server",
+              "mode": "managed",
+              "type": "random_pet",
+              "name": "server",
+              "provider_name": "registry.terraform.io/hashicorp/random",
+              "schema_version": 0,
+              "values": {
+                "keepers": {
+                  "secret_key": "secret"
+                },
+                "length": 2,
+                "prefix": null,
+                "separator": "-"
+              },
+              "sensitive_values": {
+                "keepers": {}
+              }
+            }
+          ],
+          "address": "module.hello"
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "random_pet.instance",
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "instance",
+      "provider_name": "registry.terraform.io/hashicorp/random",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "keepers": null,
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after_unknown": {
+          "id": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.ec2-instance.aws_instance.main",
+      "module_address": "module.ec2-instance",
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "main",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "ami": "ami-05ec1e5f7cfe5ef59",
+          "credit_specification": [],
+          "get_password_data": false,
+          "hibernation": null,
+          "instance_type": "t2.micro",
+          "launch_template": [],
+          "source_dest_check": true,
+          "timeouts": null,
+          "user_data_replace_on_change": false,
+          "volume_tags": null
+        },
+        "after_unknown": {
+          "arn": true,
+          "associate_public_ip_address": true,
+          "availability_zone": true,
+          "capacity_reservation_specification": true,
+          "cpu_core_count": true,
+          "cpu_options": true,
+          "cpu_threads_per_core": true,
+          "credit_specification": [],
+          "disable_api_stop": true,
+          "disable_api_termination": true,
+          "ebs_block_device": true,
+          "ebs_optimized": true,
+          "enclave_options": true,
+          "ephemeral_block_device": true,
+          "host_id": true,
+          "host_resource_group_arn": true,
+          "iam_instance_profile": true,
+          "id": true,
+          "instance_initiated_shutdown_behavior": true,
+          "instance_lifecycle": true,
+          "instance_market_options": true,
+          "instance_state": true,
+          "ipv6_address_count": true,
+          "ipv6_addresses": true,
+          "key_name": true,
+          "launch_template": [],
+          "maintenance_options": true,
+          "metadata_options": true,
+          "monitoring": true,
+          "network_interface": true,
+          "outpost_arn": true,
+          "password_data": true,
+          "placement_group": true,
+          "placement_partition_number": true,
+          "primary_network_interface_id": true,
+          "private_dns": true,
+          "private_dns_name_options": true,
+          "private_ip": true,
+          "public_dns": true,
+          "public_ip": true,
+          "root_block_device": true,
+          "secondary_private_ips": true,
+          "security_groups": true,
+          "spot_instance_request_id": true,
+          "subnet_id": true,
+          "tags": true,
+          "tags_all": true,
+          "tenancy": true,
+          "user_data": true,
+          "user_data_base64": true,
+          "vpc_security_group_ids": true
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "capacity_reservation_specification": [],
+          "cpu_options": [],
+          "credit_specification": [],
+          "ebs_block_device": [],
+          "enclave_options": [],
+          "ephemeral_block_device": [],
+          "instance_market_options": [],
+          "ipv6_addresses": [],
+          "launch_template": [],
+          "maintenance_options": [],
+          "metadata_options": [],
+          "network_interface": [],
+          "private_dns_name_options": [],
+          "root_block_device": [],
+          "secondary_private_ips": [],
+          "security_groups": [],
+          "tags": {},
+          "tags_all": {},
+          "vpc_security_group_ids": []
+        }
+      }
+    },
+    {
+      "address": "module.hello.random_pet.number_2",
+      "module_address": "module.hello",
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "number_2",
+      "provider_name": "registry.terraform.io/hashicorp/random",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "keepers": {
+            "hello": "World"
+          },
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after_unknown": {
+          "id": true,
+          "keepers": {}
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "keepers": {}
+        }
+      }
+    },
+    {
+      "address": "module.hello.random_pet.server",
+      "module_address": "module.hello",
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "server",
+      "provider_name": "registry.terraform.io/hashicorp/random",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "keepers": {
+            "secret_key": "secret"
+          },
+          "length": 2,
+          "prefix": null,
+          "separator": "-"
+        },
+        "after_unknown": {
+          "id": true,
+          "keepers": {
+            "hello": true
+          }
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "keepers": {}
+        }
+      }
+    }
+  ],
+  "prior_state": {
+    "format_version": "1.0",
+    "terraform_version": "1.12.2",
+    "values": {
+      "root_module": {
+        "resources": [
+          {
+            "address": "data.aws_ami.ubuntu",
+            "mode": "data",
+            "type": "aws_ami",
+            "name": "ubuntu",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "schema_version": 0,
+            "values": {
+              "architecture": "x86_64",
+              "arn": "arn:aws:ec2:us-east-1::image/ami-05ec1e5f7cfe5ef59",
+              "block_device_mappings": [
+                {
+                  "device_name": "/dev/sda1",
+                  "ebs": {
+                    "delete_on_termination": "true",
+                    "encrypted": "false",
+                    "iops": "0",
+                    "snapshot_id": "snap-0b030d7783e04bd00",
+                    "throughput": "0",
+                    "volume_size": "8",
+                    "volume_type": "gp2"
+                  },
+                  "no_device": "",
+                  "virtual_name": ""
+                },
+                {
+                  "device_name": "/dev/sdb",
+                  "ebs": {},
+                  "no_device": "",
+                  "virtual_name": "ephemeral0"
+                },
+                {
+                  "device_name": "/dev/sdc",
+                  "ebs": {},
+                  "no_device": "",
+                  "virtual_name": "ephemeral1"
+                }
+              ],
+              "boot_mode": "uefi-preferred",
+              "creation_date": "2025-06-27T06:45:08.000Z",
+              "deprecation_time": "2027-06-27T06:45:08.000Z",
+              "description": "Canonical, Ubuntu, 22.04, amd64 jammy image",
+              "ena_support": true,
+              "executable_users": null,
+              "filter": [
+                {
+                  "name": "name",
+                  "values": [
+                    "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+                  ]
+                },
+                {
+                  "name": "virtualization-type",
+                  "values": [
+                    "hvm"
+                  ]
+                }
+              ],
+              "hypervisor": "xen",
+              "id": "ami-05ec1e5f7cfe5ef59",
+              "image_id": "ami-05ec1e5f7cfe5ef59",
+              "image_location": "amazon/ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20250627",
+              "image_owner_alias": "amazon",
+              "image_type": "machine",
+              "imds_support": "",
+              "include_deprecated": false,
+              "kernel_id": "",
+              "most_recent": true,
+              "name": "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20250627",
+              "name_regex": null,
+              "owner_id": "099720109477",
+              "owners": [
+                "099720109477"
+              ],
+              "platform": "",
+              "platform_details": "Linux/UNIX",
+              "product_codes": [],
+              "public": true,
+              "ramdisk_id": "",
+              "root_device_name": "/dev/sda1",
+              "root_device_type": "ebs",
+              "root_snapshot_id": "snap-0b030d7783e04bd00",
+              "sriov_net_support": "simple",
+              "state": "available",
+              "state_reason": {
+                "code": "UNSET",
+                "message": "UNSET"
+              },
+              "tags": {},
+              "timeouts": null,
+              "tpm_support": "",
+              "usage_operation": "RunInstances",
+              "virtualization_type": "hvm"
+            },
+            "sensitive_values": {
+              "block_device_mappings": [
+                {
+                  "ebs": {}
+                },
+                {
+                  "ebs": {}
+                },
+                {
+                  "ebs": {}
+                }
+              ],
+              "filter": [
+                {
+                  "values": [
+                    false
+                  ]
+                },
+                {
+                  "values": [
+                    false
+                  ]
+                }
+              ],
+              "owners": [
+                false
+              ],
+              "product_codes": [],
+              "state_reason": {},
+              "tags": {}
+            }
+          }
+        ]
+      }
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "aws": {
+        "name": "aws",
+        "full_name": "registry.terraform.io/hashicorp/aws",
+        "version_constraint": "5.7.0",
+        "expressions": {
+          "region": {
+            "references": [
+              "var.region"
+            ]
+          }
+        }
+      },
+      "random": {
+        "name": "random",
+        "full_name": "registry.terraform.io/hashicorp/random",
+        "version_constraint": "3.5.1"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "random_pet.instance",
+          "mode": "managed",
+          "type": "random_pet",
+          "name": "instance",
+          "provider_config_key": "random",
+          "expressions": {
+            "length": {
+              "constant_value": 2
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.aws_ami.ubuntu",
+          "mode": "data",
+          "type": "aws_ami",
+          "name": "ubuntu",
+          "provider_config_key": "aws",
+          "expressions": {
+            "filter": [
+              {
+                "name": {
+                  "constant_value": "name"
+                },
+                "values": {
+                  "constant_value": [
+                    "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
+                  ]
+                }
+              },
+              {
+                "name": {
+                  "constant_value": "virtualization-type"
+                },
+                "values": {
+                  "constant_value": [
+                    "hvm"
+                  ]
+                }
+              }
+            ],
+            "most_recent": {
+              "constant_value": true
+            },
+            "owners": {
+              "constant_value": [
+                "099720109477"
+              ]
+            }
+          },
+          "schema_version": 0
+        }
+      ],
+      "module_calls": {
+        "ec2-instance": {
+          "source": "./modules/aws-ec2-instance",
+          "expressions": {
+            "ami_id": {
+              "references": [
+                "data.aws_ami.ubuntu.id",
+                "data.aws_ami.ubuntu"
+              ]
+            },
+            "instance_name": {
+              "references": [
+                "random_pet.instance.id",
+                "random_pet.instance"
+              ]
+            }
+          },
+          "module": {
+            "resources": [
+              {
+                "address": "aws_instance.main",
+                "mode": "managed",
+                "type": "aws_instance",
+                "name": "main",
+                "provider_config_key": "aws",
+                "expressions": {
+                  "ami": {
+                    "references": [
+                      "var.ami_id"
+                    ]
+                  },
+                  "instance_type": {
+                    "references": [
+                      "var.instance_type"
+                    ]
+                  },
+                  "tags": {
+                    "references": [
+                      "var.instance_name",
+                      "var.project_name"
+                    ]
+                  }
+                },
+                "schema_version": 1
+              }
+            ],
+            "variables": {
+              "ami_id": {
+                "description": "AMI id for instance."
+              },
+              "instance_name": {
+                "description": "Name of the EC2 instance."
+              },
+              "instance_type": {
+                "default": "t2.micro",
+                "description": "Instance type for the EC2 instance."
+              },
+              "project_name": {
+                "default": "terraform-init",
+                "description": "Name of the example project."
+              }
+            }
+          }
+        },
+        "hello": {
+          "source": "joatmon08/hello/random",
+          "expressions": {
+            "hellos": {
+              "references": [
+                "random_pet.instance.id",
+                "random_pet.instance"
+              ]
+            },
+            "some_key": {
+              "constant_value": "secret"
+            }
+          },
+          "module": {
+            "outputs": {
+              "list_of_pets": {
+                "expression": {
+                  "references": [
+                    "random_pet.server.id",
+                    "random_pet.server",
+                    "random_pet.number_2.id",
+                    "random_pet.number_2"
+                  ]
+                },
+                "description": "list of random pet IDs"
+              },
+              "pet": {
+                "expression": {
+                  "references": [
+                    "random_pet.server.id",
+                    "random_pet.server"
+                  ]
+                },
+                "description": "first random pet ID"
+              },
+              "quoted_some_key": {
+                "expression": {
+                  "references": [
+                    "var.some_key"
+                  ]
+                },
+                "description": "escaped quoted value of some_key"
+              }
+            },
+            "resources": [
+              {
+                "address": "random_pet.number_2",
+                "mode": "managed",
+                "type": "random_pet",
+                "name": "number_2",
+                "provider_config_key": "random",
+                "expressions": {
+                  "keepers": {
+                    "references": [
+                      "var.hellos.second_hello",
+                      "var.hellos"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "random_pet.server",
+                "mode": "managed",
+                "type": "random_pet",
+                "name": "server",
+                "provider_config_key": "random",
+                "expressions": {
+                  "keepers": {
+                    "references": [
+                      "var.hellos.hello",
+                      "var.hellos",
+                      "var.some_key"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              }
+            ],
+            "variables": {
+              "hellos": {
+                "description": "list of hellos"
+              },
+              "some_key": {
+                "description": "this is a some key"
+              }
+            }
+          },
+          "version_constraint": "6.0.0"
+        }
+      },
+      "variables": {
+        "project_name": {
+          "default": "terraform-plan",
+          "description": "Name of the example project."
+        },
+        "region": {
+          "default": "us-east-1",
+          "description": "AWS region for all resources."
+        }
+      }
+    }
+  },
+  "relevant_attributes": [
+    {
+      "resource": "data.aws_ami.ubuntu",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "random_pet.instance",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "module.hello.random_pet.number_2",
+      "attribute": [
+        "id"
+      ]
+    },
+    {
+      "resource": "module.hello.random_pet.server",
+      "attribute": [
+        "id"
+      ]
+    }
+  ],
+  "timestamp": "2025-06-30T21:55:41Z",
+  "applyable": true,
+  "complete": true,
+  "errored": false
+}
